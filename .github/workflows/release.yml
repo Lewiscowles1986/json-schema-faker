@@ -28,5 +28,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
           tags: true
+      - name: NPM Login to registry
+        run: npm login --registry=https://npm.pkg.github.com --scope=@lewiscowles1986
       - name: Publish version
         run: npm publish --registry=https://npm.pkg.github.com --scope=@lewiscowles1986
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
