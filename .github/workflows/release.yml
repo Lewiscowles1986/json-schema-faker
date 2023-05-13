@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - publish-fork
 
 jobs:
   Release:
@@ -29,4 +29,4 @@ jobs:
           branch: ${{ github.ref }}
           tags: true
       - name: Publish version
-        run: npm publish
+        run: npm publish --registry=https://npm.pkg.github.com --scope=@lewiscowles1986
